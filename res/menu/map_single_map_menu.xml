@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    
+	<item android:id="@+id/map_single_map_type_satelite"
+          android:title="@string/map_single_map_type_satelite_title"/>
+	<item android:id="@+id/map_single_map_type_terrain"
+          android:title="@string/map_single_map_type_terrain_title"/>
+	<item android:id="@+id/map_single_map_type_hybrid"
+          android:title="@string/map_single_map_type_hybrid_title"/>
+	<item android:id="@+id/map_single_map_type_normal"
+         android:title="@string/map_single_map_type_normal_title"/>
+</menu>

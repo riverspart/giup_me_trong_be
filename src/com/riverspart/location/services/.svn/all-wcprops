@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/1/trunk/src/com/radioactiveyak/location_best_practices/services
+END
+PlaceCheckinService.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/1/trunk/src/com/radioactiveyak/location_best_practices/services/PlaceCheckinService.java
+END
+EclairPlacesUpdateService.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/1/trunk/src/com/radioactiveyak/location_best_practices/services/EclairPlacesUpdateService.java
+END
+PlacesUpdateService.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/1/trunk/src/com/radioactiveyak/location_best_practices/services/PlacesUpdateService.java
+END
+CheckinNotificationService.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/1/trunk/src/com/radioactiveyak/location_best_practices/services/CheckinNotificationService.java
+END
+PlaceDetailsUpdateService.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/1/trunk/src/com/radioactiveyak/location_best_practices/services/PlaceDetailsUpdateService.java
+END

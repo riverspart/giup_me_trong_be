@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="gcm_gcmportal_title">Tương tác máy chủ</string>
+    
+    
+    <string name="gcm_options_clear">Xoá</string>
+    <string name="gcm_options_exit">Đóng lại</string>
+    <string name="gcm_options_register">Đăng ký</string>
+    <string name="gcm_options_unregister">Huỷ đăng ký</string>
+    
+    <string name="gcm_already_registered">Thiết bị này đã được đăng ký trên máy chủ rồi</string>
+    <string name="gcm_error_config">Hãy thiết lập lại %1$s và biên dịch lại ứng dụng.</string>
+    <string name="gcm_gcm_registered">Thiết bị được đăng ký thành công lên máy chủ GCM!</string>
+    <string name="gcm_gcm_unregistered">Thiết bị được gỡ khỏi máy chủ GCM thành công!</string>
+    <string name="gcm_gcm_message">Thông báo từ GCM, bạn nhận được tín hiệu cảnh báo!</string>
+    <string name="gcm_gcm_error">Lỗi trên máy chủ GCM (%1$s).</string>
+    <string name="gcm_gcm_deleted">Máy chủ GCM đã xoá bỏ %1$d thông điệp bị hoãn!</string>
+    <string name="gcm_gcm_recoverable_error">Lỗi có khả năng phục hồi trên máy chủ GCM (%1$s).</string>
+    
+    <string name="gcm_server_registering">Đang cố gắng (lần %1$d/%2$d) đăng ký với máy chủ nhà cung cấp.</string>
+    <string name="gcm_server_registered">Đã thêm thành công thiết bị vào máy chủ nhà cung cấp!</string>
+    <string name="gcm_server_register_error">Không thể đăng ký thiết bị sau %1$d lần cố gắng.</string>
+    <string name="gcm_server_unregistered">Gỡ bỏ thành công thiết bị khỏi máy chủ nhà cung cấp!</string>
+    <string name="gcm_server_unregister_error">Không thể gỡ bỏ đăng ký khỏi máy chủ nhà cung cấp (%1$s).</string>
+    
+    <string name="gcm_configuration_portal_title">Cấu hình máy chủ</string>
+    <string name="gcm_configuration_serverurl_label">Địa chỉ máy chủ</string>
+    <string name="gcm_configuration_senderid_label">ID nhà cung cấp</string>
+    <string name="gcm_configuration_maxattemp_label">Số lần thử lại tối đa khi kết nối lỗi</string>
+    <string name="gcm_configuration_backoff_label">Khoảng thời gian giữa mỗi lần thử lại (mili giây)</string>
+    <string name="gcm_configuration_device_regid_label">ID của thiết bị được đăng ký bởi server</string>
+    
+    <string name="gcm_notify_title">Có tín hiệu di chuyển</string>
+    
+    
+
+</resources>

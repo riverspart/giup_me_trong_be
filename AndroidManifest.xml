@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+  package="com.riverspart.nurse"
+  android:versionCode="1"
+  android:versionName="1.0">
+  
+    <!-- GCM requires Android SDK version 2.2 (API level 8) or above. -->
+	<uses-sdk
+	    android:minSdkVersion="8"
+	    android:targetSdkVersion="17"/>
+    
+	 <!-- _________________________________________________________________________ -->
+	 <!-- GCM profile -->
+	
+		<!-- GCM connects to Google Services. -->
+	    <uses-permission android:name="android.permission.INTERNET" />
+	
+	    <!-- GCM requires a Google account. -->
+	    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+	
+	    <!-- Keeps the processor from sleeping when a message is received. -->
+	    <uses-permission android:name="android.permission.WAKE_LOCK" />
+	
+	    <!--
+	     Creates a custom permission so only this app can receive its messages.
+	
+	     NOTE: the permission *must* be called PACKAGE.permission.C2D_MESSAGE,
+	           where PACKAGE is the application's package name.
+	    -->
+	    <permission
+	        android:name="com.riverspart.nurse.permission.C2D_MESSAGE"
+	        android:protectionLevel="signature" />
+	    <uses-permission
+	        android:name="com.riverspart.nurse.permission.C2D_MESSAGE" />
+	
+	    <!-- This app has permission to register and receive data message. -->
+	    <uses-permission
+	        android:name="com.google.android.c2dm.permission.RECEIVE" />
+		<!-- End of GCM profile -->
+  
+  	<!-- _________________________________________________________________________ -->
+	<!-- GPS profile -->  
+  		<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
+	    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
+	    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"></uses-permission>
+	    <!-- <uses-permission android:name="android.permission.CONTROL_LOCATION_UPDATES"></uses-permission> -->
+	    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION"></uses-permission>
+  	<!-- End of GPS profile -->
+  
+  	<!-- _________________________________________________________________________ -->
+	<!-- Location profile -->  
+		<!-- <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/> -->
+		<!-- <uses-permission android:name="android.permission.INTERNET"/> -->
+		<!-- <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> -->
+		<!-- <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"></uses-permission> -->
+  	<!-- End of Location profile -->
+  
+  
+	<!-- _________________________________________________________________________ -->
+	<!-- Map profile -->
+		<permission
+			android:name="com.riverspart.nurse.permission.MAPS_RECEIVE"
+			android:protectionLevel="signature"/>
+		
+		<uses-permission android:name="com.riverspart.nurse.permission.MAPS_RECEIVE"/>
+		
+		<!-- Copied from Google Maps Library/AndroidManifest.xml. -->
+		<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+		<!-- <uses-permission android:name="android.permission.INTERNET"/> -->
+		<uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+		<!-- External storage for caching. -->
+		<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+		<!-- My Location -->
+		<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+		<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+		<!-- Maps API needs OpenGL ES 2.0. -->
+		<uses-feature
+		  android:glEsVersion="0x00020000"
+		  android:required="true"/>
+		<!-- End of copy. -->
+		  
+		<!-- Nurse Profile -->
+		 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+		 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+		<!-- End of Nurse Profile -->
+		
+	<!-- End of Map profile -->
+
+
+  <application
+    android:icon="@drawable/ic_launcher"
+    android:label="@string/nurse_title"
+    android:hardwareAccelerated="true"
+    android:allowBackup="true">
+    <meta-data
+      android:name="com.google.android.maps.v2.API_KEY"
+      android:value="AIzaSyA26cC7n4Kuwk2e470G94kpe3mwTUpAiQ4"/>
+    
+     <!-- Nurse activities -->
+    <activity android:name="com.riverspart.nurse.NursePortalGMTB">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN"/>
+        <category android:name="android.intent.category.LAUNCHER"/>
+      </intent-filter>
+    </activity>
+    
+    <activity
+      android:name="com.riverspart.nurse.NurseConfigurationGMTB"
+      android:label="@string/nurse_configuration_portal_title"/>
+    <!-- End of Nurse activities -->
+    
+    <!-- GCM activities -->
+    <activity
+      android:name="com.riverspart.gcm.GCMPortalGMTB"
+      android:label="@string/gcm_gcmportal_title"/>
+    <activity
+      android:name="com.riverspart.gcm.GCMConfigurationGMTB"
+      android:label="@string/gcm_configuration_portal_title"/>
+    <!-- End of GCM activities -->
+    
+    <!-- GPS activities -->
+    <activity
+      android:name="com.riverspart.gps.GPSPortalGMTB"
+      android:label="@string/gps_gpsportal_title"/>
+    <activity
+      android:name="com.riverspart.gps.GPSConfigurationGMTB"
+      android:label="@string/gps_configuration_portal_title"/>
+    <!-- End of GPS activities -->
+    
+    <!-- Location activities -->
+    <!-- End of Location activities -->
+    
+    <!-- Map activities -->
+    <activity
+      android:name="com.riverspart.map.MapPortalGMTB"
+      android:label="@string/map_mapportal_title"/>
+    <activity
+      android:name="com.riverspart.map.MapConfigurationGMTB"
+      android:label="@string/map_configuration_portal_tittle"/>
+    
+	    <activity
+	      android:name="com.riverspart.map.MapBasicActivity"
+	      android:label="@string/map_basic_view_title"/>
+	    <activity
+	      android:name="com.riverspart.map.MapCameraActivity"
+	      android:label="@string/camera_demo"/>
+	    <activity
+	      android:name="com.riverspart.map.MapCircleActivity"
+	      android:label="@string/circle_demo"/>
+	    <activity
+	      android:name="com.riverspart.map.MapEventsActivity"
+	      android:label="@string/events_demo"/>
+	    <activity
+	      android:name="com.riverspart.map.MapGroundOverlayActivity"
+	      android:label="@string/groundoverlay_demo"/>
+	    <activity
+	      android:name="com.riverspart.map.MapLayersActivity"
+	      android:label="@string/layers_demo"/>
+	    <activity
+	      android:name="com.riverspart.map.MapLocationSourceActivity"
+	      android:label="@string/locationsource_demo"/>
+	    <activity
+	      android:name="com.riverspart.map.MapMarkerActivity"
+	      android:label="@string/marker_demo"/>
+	    <activity
+	      android:name="com.riverspart.map.MapOptionsActivity"
+	      android:label="@string/options_demo"/>
+	    <activity
+	      android:name="com.riverspart.map.MapPolygonActivity"
+	      android:label="@string/polygon_demo"/>
+	    <activity
+	      android:name="com.riverspart.map.MapPolylineActivity"
+	      android:label="@string/polyline_demo"/>
+	    <activity
+	      android:name="com.riverspart.map.MapProgrammaticActivity"
+	      android:label="@string/programmatic_demo"/>
+	    <activity
+	      android:name="com.riverspart.map.MapTileOverlayActivity"
+	      android:label="@string/tile_overlay_demo"/>
+	    <activity
+	      android:name="com.riverspart.map.MapUiSettingsActivity"
+	      android:label="@string/map_uisettings_view_title"/>
+	    <activity
+	      android:name="com.riverspart.map.MapRawMapViewActivity"
+	      android:label="@string/raw_mapview_demo"/>
+	    <activity
+	      android:name="com.riverspart.map.MapRetainMapActivity"
+	      android:label="@string/retain_map"/>
+	    <activity
+	      android:name="com.riverspart.map.MapMultiMapActivity"
+	      android:label="@string/multi_map_demo"/>
+    <!-- End of Map activities -->
+    
+    <!-- GCM receiver -->
+	<!--
+	BroadcastReceiver that will receive intents from GCM
+	  services and handle them to the custom IntentService.
+	
+	  The com.google.android.c2dm.permission.SEND permission is necessary
+	  so only GCM services can send data messages for the app.
+	-->
+	<receiver
+	    android:name="com.riverspart.gcm.GCMReceiver"
+	    android:permission="com.google.android.c2dm.permission.SEND" >
+	    <intent-filter>
+	        <!-- Receives the actual messages. -->
+			<action android:name="com.google.android.c2dm.intent.RECEIVE" />
+			<!-- Receives the registration id. -->
+	        <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+	        <category android:name="com.riverspart.nurse" />
+	    </intent-filter>
+	</receiver>
+	<!-- End of GCM receiver -->
+	
+	
+	<!-- GPS receiver -->
+	<receiver
+	    android:name="com.riverspart.gps.GPSLocationListener" >
+	</receiver>
+	<!-- End of GPS receiver -->
+	
+	<!-- Location receiver -->
+	<!-- <receiver android:name="com.riverspart.location.receivers.LocationChangedReceiver"/>
+    <receiver android:name="com.riverspart.location.receivers.PassiveLocationChangedReceiver"/>
+    <receiver android:name="com.riverspart.location.receivers.ConnectivityChangedReceiver" android:enabled="false">
+      <intent-filter>
+        <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+        <action android:name="com.riverspart.places.retry_queued_checkins" />
+      </intent-filter>
+    </receiver>
+    <receiver android:name="com.riverspart.location.receivers.PowerStateChangedReceiver">
+     <intent-filter>
+       <action android:name="android.intent.action.ACTION_BATTERY_LOW"/>
+		<action android:name="android.intent.action.ACTION_BATTERY_OKAY"/>
+     </intent-filter>
+    </receiver>
+    <receiver android:name="com.riverspart.location.receivers.NewCheckinReceiver">
+      <intent-filter>
+        <action android:name="com.riverspart.places.NEW_CHECKIN_ACTION"/>
+      </intent-filter>
+    </receiver>
+    <receiver android:name="com.riverspart.location.receivers.BootReceiver">
+      <intent-filter>
+        <action android:name="android.intent.action.BOOT_COMPLETED"/>
+      </intent-filter>
+    </receiver> -->
+	<!-- End of Location receiver -->
+	
+	<!-- GCM Services -->
+	<!--
+	Application-specific subclass of GCMBaseIntentService that will
+	handle received messages.
+	
+	By default, it must be named .GCMIntentService, unless the
+	application uses a custom BroadcastReceiver that redefines its name.
+	--> 
+	<service android:name="com.riverspart.gcm.GCMIntentService" />
+	
+	<!-- End of GCM Services -->
+	
+	<!-- GPS Services -->
+    <!--
+        Because android:exported is set to "false",
+        the service is only available to this app.
+    -->
+    <service
+        android:name="com.riverspart.gps.GPSUpdateService"
+        android:exported="false"/>
+    
+    <!-- End of GPS Services -->
+    
+    <!-- Location Services -->
+    <!-- <service android:enabled="@bool/pre_froyo" android:name="com.riverspart.location.services.PlacesUpdateService">
+      <intent-filter>
+        <action android:name="com.riverspart.places.placesupdateservice" />
+      </intent-filter>
+    </service>
+    <service android:enabled="@bool/froyo_or_later" android:name="com.riverspart.location.services.EclairPlacesUpdateService">
+      <intent-filter>
+        <action android:name="com.riverspart.places.placesupdateservice" />
+      </intent-filter>
+    </service>
+    <service android:name="com.riverspart.location.services.PlaceDetailsUpdateService"/>
+    <service android:name="com.riverspart.location.services.CheckinNotificationService"/>
+    <service android:name="com.riverspart.location.services.PlaceCheckinService"/> -->
+    <!-- End of Location Services -->
+    
+    <!-- Location provider -->
+	    <!-- <provider android:authorities="com.riverspart.provider.places" android:name="com.riverspart.location.content_providers.PlacesContentProvider"/>
+	    <provider android:authorities="com.riverspart.provider.placedetails" android:name="com.riverspart.location.content_providers.PlaceDetailsContentProvider"/>
+	    <provider android:authorities="com.riverspart.provider.checkins" android:name="com.riverspart.location.content_providers.QueuedCheckinsContentProvider"/> -->
+    <!-- End of Location provider -->
+    
+  </application>
+</manifest>

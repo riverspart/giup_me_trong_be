@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/1/trunk/src/com/radioactiveyak/location_best_practices/content_providers
+END
+PlaceDetailsContentProvider.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/!svn/ver/1/trunk/src/com/radioactiveyak/location_best_practices/content_providers/PlaceDetailsContentProvider.java
+END
+QueuedCheckinsContentProvider.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/!svn/ver/1/trunk/src/com/radioactiveyak/location_best_practices/content_providers/QueuedCheckinsContentProvider.java
+END
+PlacesContentProvider.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/!svn/ver/1/trunk/src/com/radioactiveyak/location_best_practices/content_providers/PlacesContentProvider.java
+END

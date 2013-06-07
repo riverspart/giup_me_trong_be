@@ -1,0 +1,14 @@
+Giúp mẹ trông bé app 
+------------
+../tools/emulator @and16 -partition-size 256
+
+./adb -s emulator-5554 shell mount -o remount,rw -t yaffs2 /dev/block/mtdblock0 /system
+./adb -s emulator-5554 shell chmod 777 /system/app
+
+./adb -s emulator-5554 push ~/Desktop/GCM/Google\ Play\ Service/GoogleLoginService.apk /system/app
+./adb -s emulator-5554 push ~/Desktop/GCM/Google\ Play\ Service/GoogleServicesFramework.apk /system/app
+./adb -s emulator-5554 install ~/Desktop/GCM/Google\ Play\ Service/Vending.apk
+
+
+
+./adb -s emulator-5554  install ~/Desktop/GCM/Google\ Play\ Service/GooglePlayServices.apk

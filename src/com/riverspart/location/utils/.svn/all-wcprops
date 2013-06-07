@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/3/trunk/src/com/radioactiveyak/location_best_practices/utils
+END
+GingerbreadSharedPreferenceSaver.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/!svn/ver/1/trunk/src/com/radioactiveyak/location_best_practices/utils/GingerbreadSharedPreferenceSaver.java
+END
+LegacyLocationUpdateRequester.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/1/trunk/src/com/radioactiveyak/location_best_practices/utils/LegacyLocationUpdateRequester.java
+END
+HoneycombStrictMode.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/1/trunk/src/com/radioactiveyak/location_best_practices/utils/HoneycombStrictMode.java
+END
+LegacyStrictMode.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/1/trunk/src/com/radioactiveyak/location_best_practices/utils/LegacyStrictMode.java
+END
+FroyoSharedPreferenceSaver.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/1/trunk/src/com/radioactiveyak/location_best_practices/utils/FroyoSharedPreferenceSaver.java
+END
+GingerbreadLocationUpdateRequester.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/!svn/ver/1/trunk/src/com/radioactiveyak/location_best_practices/utils/GingerbreadLocationUpdateRequester.java
+END
+PlatformSpecificImplementationFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/!svn/ver/1/trunk/src/com/radioactiveyak/location_best_practices/utils/PlatformSpecificImplementationFactory.java
+END
+LegacyLastLocationFinder.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/!svn/ver/3/trunk/src/com/radioactiveyak/location_best_practices/utils/LegacyLastLocationFinder.java
+END
+FroyoLocationUpdateRequester.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/1/trunk/src/com/radioactiveyak/location_best_practices/utils/FroyoLocationUpdateRequester.java
+END
+LegacySharedPreferenceSaver.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/1/trunk/src/com/radioactiveyak/location_best_practices/utils/LegacySharedPreferenceSaver.java
+END
+GingerbreadLastLocationFinder.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/3/trunk/src/com/radioactiveyak/location_best_practices/utils/GingerbreadLastLocationFinder.java
+END

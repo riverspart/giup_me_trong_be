@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="gps_gpsportal_title">Tương tác GPS</string>
+    
+    
+    <string name="gps_configuration_portal_title">Cấu hình GPS</string>
+    <string name="gps_configuration_activesharelocation_label">Cho phép chia sẻ vị trí</string>
+    <string name="gps_configuration_deviceid_label">Định danh thiết bị</string>
+    <string name="gps_configuration_distanceforupdate_label">Khoảng cách cập nhật (mét)</string>
+    <string name="gps_configuration_timeforupdate_label">Khoảng thời gian cập nhật (giây)</string>
+    
+    <string name="gps_check_not_enable_dialog_title">Cảnh báo</string>
+    <string name="gps_check_not_enable_dialog_message">Vui lòng bật tính năng Định vị của thiết bị bạn mới có thể sử dụng tính năng chia sẻ</string>
+    <string name="gps_check_not_enable_dialog_button_neutra_label">Tiếp tục</string>
+    <string name="gps_check_not_enable_dialog_button_negative_label">Trở về</string>
+    
+    <string name="gps_please_disable_share_function">Vui lòng huỷ kích hoạt tính năng chia sẻ vì tính năng định vị trên thiết bị của bạn không được kích hoạt!</string>
+</resources>

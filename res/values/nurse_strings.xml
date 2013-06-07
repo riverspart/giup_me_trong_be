@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="nurse_title">Nối vòng tay lớn</string>
+    <string name="map_menu_main_map_title">Bản đồ</string>
+    
+    <string name="nurse_configuration_portal_title">Cấu hình chương trình</string>
+    <string name="nurse_configuration_tabtitle_gcm">Máy chủ</string>
+    <string name="nurse_configuration_tabtitle_gps">GPS</string>
+    <string name="nurse_configuration_tabtitle_map">Bản đồ</string>
+    
+    <string name="nurse_no_internet_message">Thiết bị không có kết nối mạng!</string>
+</resources>

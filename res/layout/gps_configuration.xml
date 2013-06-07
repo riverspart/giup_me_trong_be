@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:id="@+id/gps_configuration_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:src="@drawable/gps" />
+
+        <CheckBox
+            android:id="@+id/gps_configuration_allow_share_location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/gps_configuration_activesharelocation_label" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/gps_configuration_deviceid_label"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <EditText
+            android:id="@+id/gps_configuration_device_alias"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10" >
+
+            <requestFocus />
+        </EditText>
+
+        <RadioGroup
+            android:id="@+id/gps_update_type"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <RadioButton
+                android:id="@+id/gps_update_type_distance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/gps_configuration_distanceforupdate_label" />
+			<EditText
+	            android:id="@+id/gps_configuration_distance_reupdate"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:ems="10"
+	            android:inputType="numberDecimal" />
+            <RadioButton
+                android:id="@+id/gps_update_type_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/gps_configuration_timeforupdate_label" />
+            <EditText
+	            android:id="@+id/gps_configuration_time_reupdate"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:ems="10"
+	            android:inputType="numberDecimal" />
+        </RadioGroup>
+    </LinearLayout>
+
+</ScrollView>

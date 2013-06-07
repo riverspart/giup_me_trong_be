@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/5/trunk/src/com/radioactiveyak/location_best_practices/receivers
+END
+PassiveLocationChangedReceiver.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/!svn/ver/5/trunk/src/com/radioactiveyak/location_best_practices/receivers/PassiveLocationChangedReceiver.java
+END
+NewCheckinReceiver.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/1/trunk/src/com/radioactiveyak/location_best_practices/receivers/NewCheckinReceiver.java
+END
+LocationChangedReceiver.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/5/trunk/src/com/radioactiveyak/location_best_practices/receivers/LocationChangedReceiver.java
+END
+BootReceiver.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/5/trunk/src/com/radioactiveyak/location_best_practices/receivers/BootReceiver.java
+END
+PowerStateChangedReceiver.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/1/trunk/src/com/radioactiveyak/location_best_practices/receivers/PowerStateChangedReceiver.java
+END
+ConnectivityChangedReceiver.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/!svn/ver/1/trunk/src/com/radioactiveyak/location_best_practices/receivers/ConnectivityChangedReceiver.java
+END

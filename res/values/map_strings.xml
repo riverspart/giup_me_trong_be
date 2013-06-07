@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="map_mapportal_title">Bản đồ tương tác</string>
+    
+    <string name="map_configuration_portal_tittle">Chọn loại bản đồ mặc định</string>
+    <string name="map_configuration_defaulttype_label">Chọn loại bản đồ mặc định</string>
+    <string name="map_configuration_settargetalias_label">Gán định danh đối tượng theo dõi</string>
+    
+    <string name="map_menu_main_config_title">Cài đặt</string>
+    <string name="map_menu_main_gcm_title">Bảng lệnh</string>
+    <string name="map_menu_main_quit_title">Thoát</string>
+    
+    <string name="map_single_map_type_satelite_title">Bản đồ vệ tinh</string>
+    <string name="map_single_map_type_hybrid_title">Bản đồ kết hợp</string>
+    <string name="map_single_map_type_terrain_title">Bản đồ địa hình</string>
+    <string name="map_single_map_type_normal_title">Bản đồ thông thường</string>
+    
+    <string name="map_unsupport_gmapv2_dialog_title">Lỗi</string>
+    <string name="map_unsupport_gmapv2_dialog_message">Thiết bị của bạn không hỗ trợ google map phiên bản 2</string>
+    <string name="map_unsupport_gmapv2_dialog_button_continue_label">Tiếp tục</string>
+    <string name="map_unsupport_gmapv2_dialog_button_stop_label">Quay về</string>
+    
+    <string name="map_not_ready">Bản đồ chưa sẵn sàng</string>
+    
+    <string name="map_basic_view_title">Bản đồ đơn giản</string>
+    <string name="map_basic_view_description">Hiển thị bản đồ không có các thông tin phụ</string>
+    <string name="map_uisettings_view_title">Bản đồ mở rộng</string>
+    <string name="map_uisettings_view_description">Hiển thị bản đồ kèm theo các thông tin phụ</string>
+</resources>

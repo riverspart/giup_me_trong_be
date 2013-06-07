@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="false" >
+    <item android:drawable="@drawable/animatedradar1" android:duration="200" />
+    <item android:drawable="@drawable/animatedradar2" android:duration="200" />
+    <item android:drawable="@drawable/animatedradar3" android:duration="200" />
+    <item android:drawable="@drawable/animatedradar4" android:duration="200" />
+    <item android:drawable="@drawable/animatedradar5" android:duration="200" />
+    <item android:drawable="@drawable/animatedradar6" android:duration="200" />
+    <item android:drawable="@drawable/animatedradar7" android:duration="200" />
+    <item android:drawable="@drawable/animatedradar8" android:duration="200" />
+    <item android:drawable="@drawable/animatedradar9" android:duration="200" />
+    <item android:drawable="@drawable/animatedradar10" android:duration="200" />
+    <item android:drawable="@drawable/animatedradar11" android:duration="200" />
+    <item android:drawable="@drawable/animatedradar12" android:duration="200" />
+</animation-list>
