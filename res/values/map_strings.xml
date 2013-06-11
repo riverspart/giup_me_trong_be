@@ -16,7 +16,7 @@
     <string name="map_single_map_type_normal_title">Bản đồ thông thường</string>
     
     <string name="map_unsupport_gmapv2_dialog_title">Lỗi</string>
-    <string name="map_unsupport_gmapv2_dialog_message">Thiết bị của bạn không hỗ trợ google map phiên bản 2</string>
+    <string name="map_unsupport_gmapv2_dialog_message">Thiết bị của bạn có phiên bản Open GL dưới 2.0, có thể sẽ không hỗ trợ google map phiên bản 2</string>
     <string name="map_unsupport_gmapv2_dialog_button_continue_label">Tiếp tục</string>
     <string name="map_unsupport_gmapv2_dialog_button_stop_label">Quay về</string>
     

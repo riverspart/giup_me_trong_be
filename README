@@ -1,14 +1,31 @@
 Giúp mẹ trông bé app 
 ------------
+
+cd ~/Applications/adt-bundle-mac-x86_64-20130219/sdk/platform-tools/
 ../tools/emulator @and16 -partition-size 256
+
+----------------
 
 ./adb -s emulator-5554 shell mount -o remount,rw -t yaffs2 /dev/block/mtdblock0 /system
 ./adb -s emulator-5554 shell chmod 777 /system/app
 
 ./adb -s emulator-5554 push ~/Desktop/GCM/Google\ Play\ Service/GoogleLoginService.apk /system/app
 ./adb -s emulator-5554 push ~/Desktop/GCM/Google\ Play\ Service/GoogleServicesFramework.apk /system/app
+
+
 ./adb -s emulator-5554 install ~/Desktop/GCM/Google\ Play\ Service/Vending.apk
 
 
 
 ./adb -s emulator-5554  install ~/Desktop/GCM/Google\ Play\ Service/GooglePlayServices.apk
+
+--------------------
+./adb -s emulator-5554 uninstall com.android.vending
+./adb -s emulator-5554 uninstall com.google.android.gms
+
+./adb -s emulator-5554 install ~/Desktop/GCM/com.android.vending-1.apk
+./adb -s emulator-5554 install ~/Desktop/GCM/com.google.android.gms-1.apk 
+
+./adb -s emulator-5554 install ~/Desktop/GCM/revision1/com.android.vending-1.apk
+./adb -s emulator-5554 install ~/Desktop/GCM/revision1/com.google.android.gms-1.apk
+

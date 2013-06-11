@@ -27,7 +27,7 @@ public abstract class RSMapSingleGMTBImpl extends RSMapGMTBImpl implements RSMap
 	protected Marker buildMarker(MarkerOptions markerOption) {
 		return mMap.addMarker(markerOption);
 	}
-	
+
 	@Override
 	public synchronized void updateMarker(String id, MarkerOptions makerOption) {
 		// TODO Auto-generated method stub
@@ -35,6 +35,7 @@ public abstract class RSMapSingleGMTBImpl extends RSMapGMTBImpl implements RSMap
 			Marker marker = markers.get(markerIds.indexOf(id));
 			marker.remove();
 			marker = mMap.addMarker(makerOption);
+			markers.set(markerIds.indexOf(id), marker);
 		} else {
 			markers.add(buildMarker(makerOption));
 			markerIds.add(id);
