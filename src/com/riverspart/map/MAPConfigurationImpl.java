@@ -1,57 +1,31 @@
 package com.riverspart.map;
 
-import android.content.SharedPreferences;
+import com.riverspart.storage.RSLazyNFileStorableImpl;
 
-import com.riverspart.RSConfigurationImpl;
+public abstract class MAPConfigurationImpl extends RSLazyNFileStorableImpl implements MAPConfiguration {
 
-public abstract class MAPConfigurationImpl extends RSConfigurationImpl implements MAPConfiguration {
-
-	@Override
-	public Object insert() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	protected int defaultMapType;
+	protected boolean displayMySharing;
+	protected boolean alertOnNotifier;
+	protected int markerAppearanceType;
 
 	@Override
-	public Object update() {
-		// TODO Auto-generated method stub
-		return null;
+	public int getDefaultMapType(){
+		return defaultMapType;
 	}
-
+	
 	@Override
-	public Object delete() {
-		// TODO Auto-generated method stub
-		return null;
+	public boolean getDisplayMySharing(){
+		return displayMySharing;
 	}
-
+	
 	@Override
-	public Object query() {
-		// TODO Auto-generated method stub
-		return null;
+	public boolean getAlertOnNotifier(){
+		return alertOnNotifier;
 	}
-
+	
 	@Override
-	public void saveStorage(SharedPreferences prefs) {
-		// TODO Auto-generated method stub
-		
+	public int getMarkerAppearanceType(){
+		return markerAppearanceType;
 	}
-
-	@Override
-	public void loadStorage(SharedPreferences prefs) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void clearStorage(SharedPreferences prefs) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void store() {
-		// TODO Auto-generated method stub
-		
-	}
-
 }

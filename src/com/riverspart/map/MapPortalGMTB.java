@@ -31,7 +31,10 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import com.riverspart.data.RSPortalControlPackage;
+import com.riverspart.gcm.GCMPortalGMTB;
 import com.riverspart.map.view.FeatureView;
+import com.riverspart.nurse.NursePortalGMTB;
+import com.riverspart.nurse.NurseSessionGMTB;
 import com.riverspart.nurse.R;
 
 /**
@@ -191,12 +194,49 @@ public final class MapPortalGMTB extends MapPortalImpl {
 	}
 
 
+	public static final int ROUTE_MAP_ACTIVITY = 19;
 	@Override
 	public void route() {
-		// TODO Auto-generated method stub
+		switch(MapSessionGMTB.currentMapConfiguration.getDefaultMapType()) {
+		
+			case MapConfigurationGMTB.DEFAULT_MAP_TYPE_BASIC :
+				Intent mapBasicIntent = new Intent(this, MapBasicActivity.class);
+		        this.startActivityForResult(mapBasicIntent, ROUTE_MAP_ACTIVITY);
+		        break;
+			case MapConfigurationGMTB.DEFAULT_MAP_TYPE_UI :
+				Intent mapUiIntent = new Intent(this, MapUiSettingsActivity.class);
+		        this.startActivityForResult(mapUiIntent, ROUTE_MAP_ACTIVITY);
+		        break;
+		    default: 
+		    	break;
+	    	
+		}
+		
 		setResult(RSPortalControlPackage.STATE_FINISH);
 	}
+	
+	protected void onActivityResult(int requestCode, int resultCode,
+            Intent data) {
+        if (requestCode == ROUTE_MAP_ACTIVITY) {
+        	
+        	setResult(RSPortalControlPackage.STATE_FINISH);
+        	finish();
+        } 
+    }
 
+	@Override
+	protected void onResume() {
+		super.onResume();
+		route();
+	}
+
+	
+	
+	@Override
+	protected void onStop() {
+		super.onStop();
+		onDestroy();
+	}
 
 	@Override
 	public void cleanFile(String fileName) {

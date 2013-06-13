@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="map_configuration_types">
+        <item>"Hỏi khi dùng đến"</item>
+        <item>@string/map_basic_view_title</item>
+        <item>@string/map_uisettings_view_title</item>
+    </string-array>
+</resources>

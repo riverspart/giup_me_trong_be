@@ -4,7 +4,11 @@
     
     <string name="map_configuration_portal_tittle">Chọn loại bản đồ mặc định</string>
     <string name="map_configuration_defaulttype_label">Chọn loại bản đồ mặc định</string>
-    <string name="map_configuration_settargetalias_label">Gán định danh đối tượng theo dõi</string>
+    <string name="map_configuration_display_myshare_title">Hiển thị chia sẻ của tôi</string>
+    <string name="map_configuration_alert_notifier_title">Thông báo các chia sẻ trên thanh trạng thái</string>
+    <string name="map_configuration_marker_appearance_title">Kiểu đánh dấu</string>
+    <string name="map_configuration_marker_appearance_point_label">Điểm đại diện</string>
+    <string name="map_configuration_marker_appearance_line_label">Kẻ đường đi</string>
     
     <string name="map_menu_main_config_title">Cài đặt</string>
     <string name="map_menu_main_gcm_title">Bảng lệnh</string>
@@ -14,6 +18,7 @@
     <string name="map_single_map_type_hybrid_title">Bản đồ kết hợp</string>
     <string name="map_single_map_type_terrain_title">Bản đồ địa hình</string>
     <string name="map_single_map_type_normal_title">Bản đồ thông thường</string>
+    <string name="map_single_clear_map_title">Dọn bản đồ</string>
     
     <string name="map_unsupport_gmapv2_dialog_title">Lỗi</string>
     <string name="map_unsupport_gmapv2_dialog_message">Thiết bị của bạn có phiên bản Open GL dưới 2.0, có thể sẽ không hỗ trợ google map phiên bản 2</string>

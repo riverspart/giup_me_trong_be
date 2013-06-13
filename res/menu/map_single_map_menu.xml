@@ -9,4 +9,6 @@
           android:title="@string/map_single_map_type_hybrid_title"/>
 	<item android:id="@+id/map_single_map_type_normal"
          android:title="@string/map_single_map_type_normal_title"/>
+	<item android:id="@+id/map_single_clear_map"
+         android:title="@string/map_single_clear_map_title"/>
 </menu>

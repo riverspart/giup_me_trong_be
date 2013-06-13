@@ -61,6 +61,8 @@ public final class ServerUtilities {
                 post(serverUrl, params);
                 GCMRegistrar.setRegisteredOnServer(context, true);
                 String message = context.getString(R.string.gcm_server_registered);
+                //Store new configuration (regId)
+                gcmConfig.store();
                 gcmConfig.displayMessage(context, message);
                 return true;
             } catch (IOException e) {
@@ -102,6 +104,9 @@ public final class ServerUtilities {
             post(serverUrl, params);
             GCMRegistrar.setRegisteredOnServer(context, false);
             String message = context.getString(R.string.gcm_server_unregistered);
+            //Remove regId from gcm config
+            //gcmConfig.setRegId("");
+            //gcmConfig.store();
             gcmConfig.displayMessage(context, message);
         } catch (IOException e) {
             // At this point the device is unregistered from GCM, but still

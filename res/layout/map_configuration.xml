@@ -13,6 +13,7 @@
 	        android:id="@+id/imageView1"
 	        android:layout_width="wrap_content"
 	        android:layout_height="200dp"
+	        android:contentDescription="@string/map_configuration_portal_tittle"
 	        android:src="@drawable/map" />
 	
 	    <TextView
@@ -23,22 +24,48 @@
 	        android:textAppearance="?android:attr/textAppearanceMedium" />
 	
 	    <Spinner
-	        android:id="@+id/spinner1"
+	        android:id="@+id/map_configuration_defaulttype"
 	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content" />
-	
-	        <TextView
-	        android:id="@+id/textView2"
-	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content" 
+	        android:entries="@array/map_configuration_types"/>
+
+	    <CheckBox
+	        android:id="@+id/map_configuration_display_myshare"
+	        android:layout_width="fill_parent"
 	        android:layout_height="wrap_content"
-	        android:text="@string/map_configuration_settargetalias_label"
-	        android:textAppearance="?android:attr/textAppearanceMedium" />
+	        android:text="@string/map_configuration_display_myshare_title" />
+
+	    <CheckBox
+	        android:id="@+id/map_configuration_alert_notifier"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:text="@string/map_configuration_alert_notifier_title" />
 	
-	        <ListView
-	            android:id="@+id/listView1"
-	            android:layout_width="match_parent"
-	            android:layout_height="wrap_content" >
-	        </ListView>
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/map_configuration_marker_appearance_title"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <RadioGroup
+            android:id="@+id/marker_appearance_type"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <RadioButton
+                android:id="@+id/map_configuration_marker_appearance_point"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/map_configuration_marker_appearance_point_label" />
+
+            <RadioButton
+                android:id="@+id/map_configuration_marker_appearance_line"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/map_configuration_marker_appearance_line_label" />
+        </RadioGroup>
 	        
 	</LinearLayout>
 </ScrollView>

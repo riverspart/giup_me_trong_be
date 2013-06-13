@@ -19,7 +19,6 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -36,8 +35,6 @@ import android.widget.TextView;
 import com.google.android.gcm.GCMRegistrar;
 import com.riverspart.data.RSPortalControlPackage;
 import com.riverspart.data.RSPortalControlPackageGMTB;
-import com.riverspart.gps.GPSConfigurationGMTB;
-import com.riverspart.gps.GPSSessionGMTB;
 import com.riverspart.nurse.NursePortalGMTB;
 import com.riverspart.nurse.R;
 
@@ -56,12 +53,6 @@ public class GCMPortalGMTB extends GCMPortalImpl {
 	public static final int CONFIGURATION_LOADED_YES = 1;
 	public static final int CONFIGURATION_LOADED_NO = 0;
 	
-	private Activity getActivity() {
-		return this;
-	}
-	private Context getContext() {
-		return getApplicationContext();
-	}
 	private void setBackground() {
 		ImageView radarImage = (ImageView) findViewById(R.id.gcm_radarbg);
 		radarImage.setBackgroundResource(R.anim.radar);
@@ -72,48 +63,9 @@ public class GCMPortalGMTB extends GCMPortalImpl {
 	
 	@Override
 	public void route() {
-		
-		/**
-		 * Update to global session for sharing to GCMIntentService
-		 */		
-			if(this.configuration == null) {
-				class Config extends GCMConfigurationGMTB {
-					@Override
-					public Activity getCurrentActivity() {
-						return getActivity();
-					}
-					@Override
-					public Context getCurrentContext() {
-						return getContext();
-					}
-				} 
-				this.configuration = new Config();
-			}
-			this.configuration.retrieve();
-			GCMSessionGMTB.currentGCMConfiguration = configuration;
-			
-		/**
-		 * Update Current live GPS Configuration to global session
-		 */
-			if(GPSSessionGMTB.currentGPSConfiguration == null) {
-				class ConfigGPS extends GPSConfigurationGMTB {
-					@Override
-					public Activity getCurrentActivity() {
-						return getActivity();
-					}
-					@Override
-					public Context getCurrentContext() {
-						return getContext();
-					}
-				} 
-				GPSSessionGMTB.currentGPSConfiguration = new ConfigGPS();
-			}
-			
-			GPSSessionGMTB.currentGPSConfiguration.retrieve();
-			
 
+		this.configuration = GCMSessionGMTB.currentGCMConfiguration;
 		initialGcm();
-
 	}
     
     protected void onActivityResult(int requestCode, int resultCode,

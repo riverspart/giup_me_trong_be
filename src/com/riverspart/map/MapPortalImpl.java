@@ -28,4 +28,5 @@ public abstract class MapPortalImpl extends ListActivity implements MapPortal {
 		intent.putExtra("sender_portal", controlPackage.getSenderPortal().getClass().getName());
 		intent.putExtra("sender_state", controlPackage.getSenderState());
 	}
+	
 }

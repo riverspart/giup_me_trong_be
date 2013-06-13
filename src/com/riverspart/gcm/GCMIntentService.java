@@ -29,6 +29,7 @@ import android.util.Log;
 import com.google.android.gcm.GCMBaseIntentService;
 import com.google.android.gcm.GCMRegistrar;
 import com.riverspart.data.RSLocationData;
+import com.riverspart.map.MapSessionGMTB;
 import com.riverspart.nurse.R;
 
 /**
@@ -73,10 +74,17 @@ public class GCMIntentService extends GCMBaseIntentService {
 
     @Override
     protected void onMessage(Context context, Intent intent) {
+
+    	if(
+    			!MapSessionGMTB.currentMapConfiguration.getDisplayMySharing() 
+    			&& GCMSessionGMTB.currentGCMConfiguration.getRegId().equals(intent.getExtras().getString(RSLocationData.ID))
+		) {
+    		return;
+    	}
         Log.i(TAG, "Received message");
         String message = intent.getExtras().getString(RSLocationData.TITLE);
         message += ": " + intent.getExtras().getString(RSLocationData.LONGTITUDE);
-        message += " " + intent.getExtras().getString(RSLocationData.LATITUDE);
+        message += " * " + intent.getExtras().getString(RSLocationData.LATITUDE);
         
         Date date = new Date(Long.parseLong(intent.getExtras().getString(RSLocationData.TIME)));
         SimpleDateFormat sDateFormat = new SimpleDateFormat("HH:mm:ss a - dd/MM/yyyy");
@@ -88,7 +96,9 @@ public class GCMIntentService extends GCMBaseIntentService {
 	        this.configuration.passLocationData(context, intent);
         }
         // notifies user
-        generateNotification(context, message);
+        if(MapSessionGMTB.currentMapConfiguration.getAlertOnNotifier()) {
+        	generateNotification(context, message);
+    	}
     }
 
     @Override

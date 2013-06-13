@@ -35,10 +35,15 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.riverspart.data.RSPortalControlPackage;
+import com.riverspart.gcm.GCMConfigurationGMTB;
 import com.riverspart.gcm.GCMPortalGMTB;
+import com.riverspart.gcm.GCMSessionGMTB;
+import com.riverspart.gps.GPSConfigurationGMTB;
 import com.riverspart.gps.GPSPortalGMTB;
 import com.riverspart.gps.GPSSessionGMTB;
+import com.riverspart.map.MapConfigurationGMTB;
 import com.riverspart.map.MapPortalGMTB;
+import com.riverspart.map.MapSessionGMTB;
 
 
 /**
@@ -107,12 +112,18 @@ public final class NursePortalGMTB extends NursePortalImpl {
     private boolean firstStartGps = true;
 	@Override
 	public void route() {
+		
+		
+		
 		if(this.routingTable.getInt(CONFIGURATION_ROUTING_INDEX, RSPortalControlPackage.STATE_NOT_AVAILABLE) != RSPortalControlPackage.STATE_READY){
 			Intent nurseConfigIntent = new Intent(this, NurseConfigurationGMTB.class);
 	        this.startActivityForResult(nurseConfigIntent, NursePortalGMTB.CHECK_CONFIGURATION_CODE);
 		} else if(!isOnline()) {
 			Toast.makeText(getApplicationContext(), R.string.nurse_no_internet_message, Toast.LENGTH_LONG).show();
 			setContentView(R.layout.nurse_no_internet);
+		} else if(!NurseSessionGMTB.sessionUpdated) {
+			
+			updateSessionData();
 		} else if((this.routingTable.getInt(GCM_ROUTING_INDEX, RSPortalControlPackage.STATE_NOT_AVAILABLE) != RSPortalControlPackage.STATE_READY) || !checkSession()) {
 			/**
 	         * Activate GCM Portal
@@ -120,7 +131,7 @@ public final class NursePortalGMTB extends NursePortalImpl {
 	        Intent gcmIntent = new Intent(this, GCMPortalGMTB.class);
 	        this.startActivityForResult(gcmIntent, NursePortalGMTB.CHECK_GCM_CONNECTION_CODE);
 		} else if(
-				//GPSSessionGMTB has been initialized when activated GCMPortal
+				//GPSSessionGMTB has been initialized in updateSessionData();
 				GPSSessionGMTB.currentGPSConfiguration.getAllowShareLocation()
 				
 				// Need reactivate per starting application time due to be disable by some reasons
@@ -137,10 +148,84 @@ public final class NursePortalGMTB extends NursePortalImpl {
 	         */
 	        Intent gpsIntent = new Intent(this, GPSPortalGMTB.class);
 	        this.startActivityForResult(gpsIntent, NursePortalGMTB.CHECK_GPS_CONNECTION_CODE);
-		}else if(this.routingTable.getInt(MAP_ROUTING_INDEX, RSPortalControlPackage.STATE_NOT_AVAILABLE)!= RSPortalControlPackage.STATE_FINISH) {
+		} else if(this.routingTable.getInt(MAP_ROUTING_INDEX, RSPortalControlPackage.STATE_NOT_AVAILABLE)!= RSPortalControlPackage.STATE_FINISH) {
 			startMap();
 		}     
 
+	}
+	
+	private Activity getActivity() {
+		return this;
+	}
+	private Context getContext() {
+		return getApplicationContext();
+	}
+	
+	protected void updateSessionData() {
+		/**
+		 * Update to global session for sharing to GCMIntentService
+		 */		
+			if(GCMSessionGMTB.currentGCMConfiguration == null) {
+				class Config extends GCMConfigurationGMTB {
+					@Override
+					public Activity getCurrentActivity() {
+						return getActivity();
+					}
+					@Override
+					public Context getCurrentContext() {
+						return getContext();
+					}
+				} 
+				GCMSessionGMTB.currentGCMConfiguration = new Config();
+			}
+			GCMSessionGMTB.currentGCMConfiguration.retrieve();
+			
+		/**
+		 * Update Current live GPS Configuration to global session
+		 */
+			if(GPSSessionGMTB.currentGPSConfiguration == null) {
+				class ConfigGPS extends GPSConfigurationGMTB {
+					@Override
+					public Activity getCurrentActivity() {
+						return getActivity();
+					}
+					@Override
+					public Context getCurrentContext() {
+						return getContext();
+					}
+				} 
+				GPSSessionGMTB.currentGPSConfiguration = new ConfigGPS();
+			}
+			
+			GPSSessionGMTB.currentGPSConfiguration.retrieve();
+			
+		/**
+		 * Update Current live MAP Configuration to global session
+		 */
+			if(MapSessionGMTB.currentMapConfiguration == null) {
+				class ConfigMAP extends MapConfigurationGMTB {
+					@Override
+					public Activity getCurrentActivity() {
+						return getActivity();
+					}
+					@Override
+					public Context getCurrentContext() {
+						return getContext();
+					}
+				} 
+				MapSessionGMTB.currentMapConfiguration = new ConfigMAP();
+			}
+			
+			MapSessionGMTB.currentMapConfiguration.retrieve();
+			
+		if(
+				GCMSessionGMTB.currentGCMConfiguration != null
+				&& MapSessionGMTB.currentMapConfiguration != null
+				&& GPSSessionGMTB.currentGPSConfiguration != null
+		) {
+			NurseSessionGMTB.sessionUpdated = true;
+		}
+		route();
 	}
 	
 	private void startMap() {
@@ -172,8 +257,9 @@ public final class NursePortalGMTB extends NursePortalImpl {
         	
         	this.routingTable.putInt(CONFIGURATION_ROUTING_INDEX, resultCode);
         	//Need rerun GCM vs GPS after config changed
+        	// vs re update session configurations
         	//if(resultCode != RSPortalControlPackage.STATE_READY) {
-        		
+        		NurseSessionGMTB.sessionUpdated = false;
         		this.routingTable.putInt(GCM_ROUTING_INDEX, RSPortalControlPackage.STATE_NOT_AVAILABLE);
         		this.routingTable.putInt(GPS_ROUTING_INDEX, RSPortalControlPackage.STATE_NOT_AVAILABLE);
         	//}

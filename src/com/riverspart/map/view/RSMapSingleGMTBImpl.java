@@ -9,8 +9,12 @@ import android.view.MenuItem;
 
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.PolylineOptions;
+import com.riverspart.map.MapConfigurationGMTB;
+import com.riverspart.map.MapSessionGMTB;
 import com.riverspart.nurse.R;
 
 public abstract class RSMapSingleGMTBImpl extends RSMapGMTBImpl implements RSMapSingleGMTB {
@@ -30,15 +34,51 @@ public abstract class RSMapSingleGMTBImpl extends RSMapGMTBImpl implements RSMap
 
 	@Override
 	public synchronized void updateMarker(String id, MarkerOptions makerOption) {
-		// TODO Auto-generated method stub
+
 		if(markerIds.contains(id)) {
 			Marker marker = markers.get(markerIds.indexOf(id));
+			Marker markerNew = buildMarker(makerOption);
+			if(MapConfigurationGMTB.MAKER_APPEARANCE_TYPE_LINE == MapSessionGMTB.currentMapConfiguration.getMarkerAppearanceType()) {
+				PolylineOptions plineOptions = new PolylineOptions();
+				plineOptions.add(marker.getPosition(), markerNew.getPosition());
+				mMap.addPolyline(plineOptions);
+			}
 			marker.remove();
-			marker = mMap.addMarker(makerOption);
-			markers.set(markerIds.indexOf(id), marker);
+			markers.set(markerIds.indexOf(id), markerNew);
 		} else {
-			markers.add(buildMarker(makerOption));
-			markerIds.add(id);
+			try {
+				// Append to the end of queue
+				markers.add(buildMarker(makerOption));
+				markerIds.add(id);
+			}catch(OutOfMemoryError e) {
+				/**
+				 * Check if OutOfMemoryError existed,
+				 * remove an oldest marker in queue then add new one
+				 */
+				Marker marker = null;
+				if(markers.size() > 0) {
+					marker = markers.remove(0);
+				}
+				if(null != marker && null != markerIds.remove(0)) {
+					marker.remove();
+					//Recursively call updateMarker to try again
+					updateMarker(id, makerOption);
+				} else {
+					// Have to clear map 
+					// because error references might occur when remove not successfully all
+					clearMap();
+				}
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	protected void clearMap() {
+		if(null != mMap) {
+			markerIds.clear();
+			markers.clear();
+			mMap.clear();
 		}
 	}
 	
@@ -93,6 +133,9 @@ public abstract class RSMapSingleGMTBImpl extends RSMapGMTBImpl implements RSMap
                 return true;
             case R.id.map_single_map_type_terrain:
             	mMap.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
+                return true;
+            case R.id.map_single_clear_map:
+            	clearMap();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

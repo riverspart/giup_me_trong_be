@@ -40,19 +40,20 @@ public class GPSPortalGMTB extends GPSPortalImpl {
 	    LocationListener ll = new GPSLocationListener();
 	    try {
 	    	// Bind System Location provider to LocationListener
-	    	if(lm.isProviderEnabled (LocationManager.GPS_PROVIDER)) 
+	    	if(lm.isProviderEnabled (LocationManager.GPS_PROVIDER)) {
 	    		lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, ll);
-	    	if(lm.isProviderEnabled (LocationManager.NETWORK_PROVIDER))
+	    	} else if(lm.isProviderEnabled (LocationManager.NETWORK_PROVIDER)) {
 	    		lm.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, ll);
-	    	if(lm.isProviderEnabled (LocationManager.PASSIVE_PROVIDER))
-	    		lm.requestLocationUpdates(LocationManager.PASSIVE_PROVIDER, 0, 0, ll);
+	    	}
+//	    	else if(lm.isProviderEnabled (LocationManager.PASSIVE_PROVIDER))
+//	    		lm.requestLocationUpdates(LocationManager.PASSIVE_PROVIDER, 0, 0, ll);
 	    } catch(Exception e) {
 	    	e.printStackTrace();
 	    }
 	    
 	    boolean isGPS = lm.isProviderEnabled (LocationManager.GPS_PROVIDER)
 	    				|| lm.isProviderEnabled(LocationManager.NETWORK_PROVIDER)
-	    				|| lm.isProviderEnabled(LocationManager.PASSIVE_PROVIDER);
+	    				;//|| lm.isProviderEnabled(LocationManager.PASSIVE_PROVIDER);
 	    if(!isGPS) {
 	    	//Raise an alert dialog
         	new AlertDialog.Builder(this)
