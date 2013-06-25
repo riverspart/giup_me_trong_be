@@ -31,10 +31,7 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import com.riverspart.data.RSPortalControlPackage;
-import com.riverspart.gcm.GCMPortalGMTB;
 import com.riverspart.map.view.FeatureView;
-import com.riverspart.nurse.NursePortalGMTB;
-import com.riverspart.nurse.NurseSessionGMTB;
 import com.riverspart.nurse.R;
 
 /**

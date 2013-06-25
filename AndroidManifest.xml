@@ -52,7 +52,7 @@
 		<!-- <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/> -->
 		<!-- <uses-permission android:name="android.permission.INTERNET"/> -->
 		<!-- <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> -->
-		<!-- <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"></uses-permission> -->
+		<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"></uses-permission>
   	<!-- End of Location profile -->
   
   
@@ -142,54 +142,20 @@
 	      android:name="com.riverspart.map.MapBasicActivity"
 	      android:label="@string/map_basic_view_title"/>
 	    <activity
-	      android:name="com.riverspart.map.MapCameraActivity"
-	      android:label="@string/camera_demo"/>
-	    <activity
-	      android:name="com.riverspart.map.MapCircleActivity"
-	      android:label="@string/circle_demo"/>
-	    <activity
-	      android:name="com.riverspart.map.MapEventsActivity"
-	      android:label="@string/events_demo"/>
-	    <activity
-	      android:name="com.riverspart.map.MapGroundOverlayActivity"
-	      android:label="@string/groundoverlay_demo"/>
-	    <activity
-	      android:name="com.riverspart.map.MapLayersActivity"
-	      android:label="@string/layers_demo"/>
-	    <activity
-	      android:name="com.riverspart.map.MapLocationSourceActivity"
-	      android:label="@string/locationsource_demo"/>
-	    <activity
-	      android:name="com.riverspart.map.MapMarkerActivity"
-	      android:label="@string/marker_demo"/>
-	    <activity
-	      android:name="com.riverspart.map.MapOptionsActivity"
-	      android:label="@string/options_demo"/>
-	    <activity
-	      android:name="com.riverspart.map.MapPolygonActivity"
-	      android:label="@string/polygon_demo"/>
-	    <activity
-	      android:name="com.riverspart.map.MapPolylineActivity"
-	      android:label="@string/polyline_demo"/>
-	    <activity
-	      android:name="com.riverspart.map.MapProgrammaticActivity"
-	      android:label="@string/programmatic_demo"/>
-	    <activity
-	      android:name="com.riverspart.map.MapTileOverlayActivity"
-	      android:label="@string/tile_overlay_demo"/>
-	    <activity
 	      android:name="com.riverspart.map.MapUiSettingsActivity"
 	      android:label="@string/map_uisettings_view_title"/>
-	    <activity
-	      android:name="com.riverspart.map.MapRawMapViewActivity"
-	      android:label="@string/raw_mapview_demo"/>
-	    <activity
-	      android:name="com.riverspart.map.MapRetainMapActivity"
-	      android:label="@string/retain_map"/>
 	    <activity
 	      android:name="com.riverspart.map.MapMultiMapActivity"
 	      android:label="@string/multi_map_demo"/>
     <!-- End of Map activities -->
+    
+    <!-- Nurse receiver -->
+    <receiver android:name="com.riverspart.location.receivers.BootReceiver">
+      <intent-filter>
+        <action android:name="android.intent.action.BOOT_COMPLETED"/>
+      </intent-filter>
+    </receiver>
+    <!-- End Nurse receiver -->
     
     <!-- GCM receiver -->
 	<!--
